@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-final class Empresa
+final class TiposDeSeguros
 {
     private int $id;
     private string $name;
     private ?string $description;
+    private int $aliado_id; // Enlace a la tabla de aliados (clave foránea)
 
     public function toJson(): object
     {
@@ -39,6 +40,17 @@ final class Empresa
     public function updateDescription(?string $description): self
     {
         $this->description = $description;
+        return $this;
+    }
+
+    public function getAliadoId(): int
+    {
+        return $this->aliado_id;
+    }
+
+    public function updateAliadoId(int $aliadoId): self
+    {
+        $this->aliado_id = $aliadoId;
         return $this;
     }
 }

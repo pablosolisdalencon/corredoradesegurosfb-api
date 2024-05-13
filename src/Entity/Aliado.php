@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-final class Empresa
+final class Aliado
 {
     private int $id;
     private string $name;

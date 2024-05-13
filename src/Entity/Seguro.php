@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-final class Empresa
+final class Seguro
 {
     private int $id;
     private string $name;
     private ?string $description;
+    private int $tipodeseguro_id; // Enlace al tipo de seguro correspondiente (clave foránea)
 
     public function toJson(): object
     {
@@ -39,6 +40,17 @@ final class Empresa
     public function updateDescription(?string $description): self
     {
         $this->description = $description;
+        return $this;
+    }
+
+    public function getTipoDeSeguroId(): int
+    {
+        return $this->tipodeseguro_id;
+    }
+
+    public function updateTipoDeSeguroId(int $tipoDeSeguroId): self
+    {
+        $this->tipodeseguro_id = $tipoDeSeguroId;
         return $this;
     }
 }

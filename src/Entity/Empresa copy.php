@@ -7,7 +7,9 @@ namespace App\Entity;
 final class Empresa
 {
     private int $id;
+
     private string $name;
+
     private ?string $description;
 
     public function toJson(): object
@@ -28,6 +30,7 @@ final class Empresa
     public function updateName(string $name): self
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -39,6 +42,7 @@ final class Empresa
     public function updateDescription(?string $description): self
     {
         $this->description = $description;
+
         return $this;
     }
 }
