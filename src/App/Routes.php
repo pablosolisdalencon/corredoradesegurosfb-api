@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 use App\Controller\Empresa;
+use App\Controller\Aliado;
+use App\Controller\TiposDeSeguros;
+use App\Controller\Seguro;
+use App\Controller\Poliza;
+use App\Controller\Cobertura;
 use App\Controller\Note;
 use App\Controller\Task;
 use App\Controller\User;
@@ -45,6 +50,46 @@ return static function ($app) {
             $app->put('/{id}', Empresa\Update::class);
             $app->delete('/{id}', Empresa\Delete::class);
         });
+        $app->group('/aliados', function () use ($app): void {
+            $app->get('', Aliado\GetAll::class);
+            $app->post('', Aliado\Create::class);
+            $app->get('/{id}', Aliado\GetOne::class);
+            $app->put('/{id}', Aliado\Update::class);
+            $app->delete('/{id}', Aliado\Delete::class);
+        });
+        
+        $app->group('/tipos-de-seguros', function () use ($app): void {
+            $app->get('', TiposDeSeguros\GetAll::class);
+            $app->post('', TiposDeSeguros\Create::class);
+            $app->get('/{id}', TiposDeSeguros\GetOne::class);
+            $app->put('/{id}', TiposDeSeguros\Update::class);
+            $app->delete('/{id}', TiposDeSeguros\Delete::class);
+        });
+        
+        $app->group('/seguros', function () use ($app): void {
+            $app->get('', Seguro\GetAll::class);
+            $app->post('', Seguro\Create::class);
+            $app->get('/{id}', Seguro\GetOne::class);
+            $app->put('/{id}', Seguro\Update::class);
+            $app->delete('/{id}', Seguro\Delete::class);
+        });
+        
+        $app->group('/polizas', function () use ($app): void {
+            $app->get('', Poliza\GetAll::class);
+            $app->post('', Poliza\Create::class);
+            $app->get('/{id}', Poliza\GetOne::class);
+            $app->put('/{id}', Poliza\Update::class);
+            $app->delete('/{id}', Poliza\Delete::class);
+        });
+        
+        $app->group('/coberturas', function () use ($app): void {
+            $app->get('', Cobertura\GetAll::class);
+            $app->post('', Cobertura\Create::class);
+            $app->get('/{id}', Cobertura\GetOne::class);
+            $app->put('/{id}', Cobertura\Update::class);
+            $app->delete('/{id}', Cobertura\Delete::class);
+        });
+        
 
     });
 

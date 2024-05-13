@@ -7,7 +7,7 @@ namespace App\Controller\Cobertura;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-final class Delete extends Base
+final class GetOne extends Base
 {
     /**
      * @param array<string> $args
@@ -17,9 +17,8 @@ final class Delete extends Base
         Response $response,
         array $args
     ): Response {
-        $this->getServiceDeleteCobertura()->delete((int) $args['id']);
+        $cobertura = $this->getServiceFindCobertura()->getOne((int) $args['id']);
 
-        return $this->jsonResponse($response, 'success', null, 204);
+        return $this->jsonResponse($response, 'success', $cobertura, 200);
     }
 }
-
