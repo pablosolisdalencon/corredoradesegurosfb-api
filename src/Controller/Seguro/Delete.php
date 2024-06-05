@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Empresa;
+namespace App\Controller\Seguro;
 
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -17,7 +17,7 @@ final class Delete extends Base
         Response $response,
         array $args
     ): Response {
-        $this->getServiceDeleteEmpresa()->delete((int) $args['id']);
+        $this->getServiceDeleteSeguro()->delete((int) $args['id']);
 
         return $this->jsonResponse($response, 'success', null, 204);
     }
